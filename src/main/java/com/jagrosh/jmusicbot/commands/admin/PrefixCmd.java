@@ -29,7 +29,7 @@ public class PrefixCmd extends AdminCommand
     public PrefixCmd(Bot bot)
     {
         this.name = "prefix";
-        this.help = "sets a server-specific prefix";
+        this.help = "Botに使用する記号を指定する";
         this.arguments = "<prefix|NONE>";
         this.aliases = bot.getConfig().getAliases(this.name);
     }
@@ -39,7 +39,7 @@ public class PrefixCmd extends AdminCommand
     {
         if(event.getArgs().isEmpty())
         {
-            event.replyError("Please include a prefix or NONE");
+            event.replyError("私に話すときに使う最初の記号とかを指定してくれ (※『NONE』にするとメンションで反応してやるぞ)");
             return;
         }
         
@@ -47,12 +47,12 @@ public class PrefixCmd extends AdminCommand
         if(event.getArgs().equalsIgnoreCase("none"))
         {
             s.setPrefix(null);
-            event.replySuccess("Prefix cleared.");
+            event.replySuccess("NONEが指定されたぜ　メンションでこれから頼むぜ！");
         }
         else
         {
             s.setPrefix(event.getArgs());
-            event.replySuccess("Custom prefix set to `" + event.getArgs() + "` on *" + event.getGuild().getName() + "*");
+            event.replySuccess("新しく `" + event.getArgs() + "` を設定してやったぞ！ 設定したサーバー:*" + event.getGuild().getName() + "*");
         }
     }
 }

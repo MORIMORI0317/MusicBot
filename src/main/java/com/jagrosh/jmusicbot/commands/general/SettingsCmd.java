@@ -37,7 +37,7 @@ public class SettingsCmd extends Command
     public SettingsCmd(Bot bot)
     {
         this.name = "settings";
-        this.help = "shows the bots settings";
+        this.help = "設定を表示";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = true;
     }
@@ -55,12 +55,12 @@ public class SettingsCmd extends Command
         Role role = s.getRole(event.getGuild());
         EmbedBuilder ebuilder = new EmbedBuilder()
                 .setColor(event.getSelfMember().getColor())
-                .setDescription("Text Channel: " + (tchan == null ? "Any" : "**#" + tchan.getName() + "**")
-                        + "\nVoice Channel: " + (vchan == null ? "Any" : "**" + vchan.getName() + "**")
-                        + "\nDJ Role: " + (role == null ? "None" : "**" + role.getName() + "**")
-                        + "\nCustom Prefix: " + (s.getPrefix() == null ? "None" : "`" + s.getPrefix() + "`")
-                        + "\nRepeat Mode: **" + (s.getRepeatMode() ? "On" : "Off") + "**"
-                        + "\nDefault Playlist: " + (s.getDefaultPlaylist() == null ? "None" : "**" + s.getDefaultPlaylist() + "**")
+                .setDescription("テキストチャンネル: " + (tchan == null ? "Any" : "**#" + tchan.getName() + "**")
+                        + "\nボイスチャンネル: " + (vchan == null ? "Any" : "**" + vchan.getName() + "**")
+                        + "\nDJ権限: " + (role == null ? "None" : "**" + role.getName() + "**")
+                        + "\n私が反応する記号とか: " + (s.getPrefix() == null ? "None" : "`" + s.getPrefix() + "`")
+                        + "\nリピート状態: **" + (s.getRepeatMode() ? "On" : "Off") + "**"
+                        + "\nデフォルトのプレイリスト: " + (s.getDefaultPlaylist() == null ? "None" : "**" + s.getDefaultPlaylist() + "**")
                         )
                 .setFooter(event.getJDA().getGuilds().size() + " servers | "
                         + event.getJDA().getGuilds().stream().filter(g -> g.getSelfMember().getVoiceState().inVoiceChannel()).count()

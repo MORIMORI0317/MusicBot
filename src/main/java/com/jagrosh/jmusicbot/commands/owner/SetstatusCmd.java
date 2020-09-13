@@ -29,7 +29,7 @@ public class SetstatusCmd extends OwnerCommand
     public SetstatusCmd(Bot bot)
     {
         this.name = "setstatus";
-        this.help = "sets the status the bot displays";
+        this.help = "ステータス表示";
         this.arguments = "<status>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = false;

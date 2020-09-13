@@ -30,7 +30,7 @@ public class SkiptoCmd extends DJCommand
     {
         super(bot);
         this.name = "skipto";
-        this.help = "skips to the specified song";
+        this.help = "スキップする曲を指定する";
         this.arguments = "<position>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.bePlaying = true;
@@ -46,17 +46,17 @@ public class SkiptoCmd extends DJCommand
         }
         catch(NumberFormatException e)
         {
-            event.reply(event.getClient().getError()+" `"+event.getArgs()+"` is not a valid integer!");
+            event.reply(event.getClient().getError()+" `"+event.getArgs()+"` は俺にはわからないな...");
             return;
         }
         AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
         if(index<1 || index>handler.getQueue().size())
         {
-            event.reply(event.getClient().getError()+" Position must be a valid integer between 1 and "+handler.getQueue().size()+"!");
+            event.reply(event.getClient().getError()+" 位置は１から "+handler.getQueue().size()+" までの数字にしてよね！？");
             return;
         }
         handler.getQueue().skip(index-1);
-        event.reply(event.getClient().getSuccess()+" Skipped to **"+handler.getQueue().get(0).getTrack().getInfo().title+"**");
+        event.reply(event.getClient().getSuccess()+" 曲をスキップ... **"+handler.getQueue().get(0).getTrack().getInfo().title+"**");
         handler.getPlayer().stopTrack();
     }
 }
