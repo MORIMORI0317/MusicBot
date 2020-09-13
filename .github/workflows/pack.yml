@@ -19,7 +19,6 @@ jobs:
       ses: battila7/get-version-action@v2
 
     - name: Create Release
-        if: matrix.os == 'macos-latest'
         id: create_release
         uses: actions/create-release@v1
         env:
