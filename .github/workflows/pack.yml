@@ -33,8 +33,7 @@ jobs:
 
           ### JMusicBot-${{ steps.get_version.outputs.version-without-v }}-All.jar (JAVAが動く全OS対応)
 
-          #### ※JMusicBot-${{ steps.get_version.outputs.version-without-v }}.jar
-          #### 　(ダウンロードしないでください！これは一時ファイルです！)
+          #### ※JMusicBot-${{ steps.get_version.outputs.version-without-v }}.jar(ダウンロードしないでください！これは一時ファイルです！)
 
 
           バージョンをよく確認しておいてください！
