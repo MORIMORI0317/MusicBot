@@ -25,15 +25,15 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
       with:
         tag_name: ${{ steps.get_version.outputs.version }}
-        release_name: J-Japanese-MusicBot - ${{ steps.get_version.outputs.version-without-v }}
+        release_name: ${{ steps.get_version.outputs.version }} - J-Japanese-MusicBot
         body: |
           ## WIKI (English)
           https://github.com/jagrosh/MusicBot/wiki/Setup
           https://github.com/jagrosh/MusicBot/wiki/Example-Config
 
-          ### JMusicBot-${{ steps.get_version.outputs.version-without-v }}-All.jar (JAVAが動く全OS対応)
+          ### JMusicBot-${{ steps.get_version.outputs.version }}-All.jar (JAVAが動く全OS対応)
 
-          #### ※JMusicBot-${{ steps.get_version.outputs.version-without-v }}.jar(ダウンロードしないでください！これは一時ファイルです！)
+          #### ※JMusicBot-${{ steps.get_version.outputs.version }}.jar(ダウンロードしないでください！これは一時ファイルです！)
 
 
           バージョンをよく確認しておいてください！
