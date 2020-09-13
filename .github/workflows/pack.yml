@@ -27,18 +27,21 @@ jobs:
         tag_name: ${{ steps.get_version.outputs.version }}
         release_name: J-Japanese-MusicBot - ${{ steps.get_version.outputs.version-without-v }}
         body: |
-          WIKI (English)
+          ## WIKI (English)
           https://github.com/jagrosh/MusicBot/wiki/Setup
           https://github.com/jagrosh/MusicBot/wiki/Example-Config
 
-          JMusicBot-${{ steps.get_version.outputs.version-without-v }}.jar (JAVAが動く全OS対応)
+          ### JMusicBot-${{ steps.get_version.outputs.version-without-v }}-All.jar (JAVAが動く全OS対応)
+
+          #### ※JMusicBot-${{ steps.get_version.outputs.version-without-v }}.jar
+          #### 　(ダウンロードしないでください！これは一時ファイルです！)
+
 
           バージョンをよく確認しておいてください！
           ![687474703a2f2f692e696d6775722e636f6d2f313478397544792e706e67](https://user-images.githubusercontent.com/29114790/93017367-0e17d880-f603-11ea-9b35-97ea82265c39.png)
-
           これらのファイルをファイル権限などが厳しいところに置かないでください。うまく動作しなくなる可能性があります。
 
-          Source code.zip/.tar.gzはダウンロードしないでください。必要ありませんので...
+          #### Source code.zip/.tar.gzはダウンロードしないでください。必要ありませんので...
 
           Build by ${{ github.actor }}
         draft: false
