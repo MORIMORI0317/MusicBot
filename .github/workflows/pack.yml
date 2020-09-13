@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Get latest release version tag number
       id: get_version
-      ses: battila7/get-version-action@v2
+      uses: battila7/get-version-action@v2
 
     - name: Create Release
       id: create_release
