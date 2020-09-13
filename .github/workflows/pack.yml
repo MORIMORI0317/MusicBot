@@ -6,7 +6,7 @@ name: Java CI with Maven
 on:
   push:
     tags:
-      - '1.2*'
+      - 'v1.2*'
 
 jobs:
   build:
@@ -14,6 +14,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Get latest release version tag number
+      id: get_version
+      ses: battila7/get-version-action@v2
+
+    - name: Create Release
+        if: matrix.os == 'macos-latest'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          release_name: J-Japanese-MusicBot - ${{ steps.get_version.outputs.version-without-v }}
+          body: |
+            WIKI (English)
+            https://github.com/jagrosh/MusicBot/wiki/Setup
+            https://github.com/jagrosh/MusicBot/wiki/Example-Config
+
+            JMusicBot-${{ steps.get_version.outputs.version-without-v }}.jar (JAVAが動く全OS対応)
+
+            バージョンをよく確認しておいてください！
+            ![687474703a2f2f692e696d6775722e636f6d2f313478397544792e706e67](https://user-images.githubusercontent.com/29114790/93017367-0e17d880-f603-11ea-9b35-97ea82265c39.png)
+
+            これらのファイルをファイル権限などが厳しいところに置かないでください。うまく動作しなくなる可能性があります。
+
+            Source code.zip/.tar.gzはダウンロードしないでください。必要ありませんので...
+
+            Build by ${{ github.actor }}
+          draft: false
+          prerelease: false
+
+
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -21,3 +53,20 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+
+    - uses: actions/upload-artifact@v1
+      name: Action-Upload
+      with:
+        name: Release
+        path: target
+
+    - uses: xresloader/upload-to-github-release@v1
+      name: Upload Release File
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+      with:
+        file: "target/*.jar"
+        tags: true
+        draft: false
+        tag_name: ${{ steps.get_version.outputs.version }}
