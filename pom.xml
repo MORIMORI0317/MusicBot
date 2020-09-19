@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jagrosh</groupId>
     <artifactId>JMusicBot</artifactId>
-    <version>v1.2.1010</version>
+    <version>v1.2.108</version>
     <packaging>jar</packaging>
     
     <repositories>
