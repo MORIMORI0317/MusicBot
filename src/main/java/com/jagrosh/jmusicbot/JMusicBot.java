@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author John Grosh (jagrosh)
  */
-public class JMusicBot 
+public class JMusicBot
 {
     public final static String PLAY_EMOJI  = "\u25B6"; // ▶
     public final static String PAUSE_EMOJI = "\u23F8"; // ⏸
@@ -53,32 +53,32 @@ public class JMusicBot
     {
         // startup log
         Logger log = LoggerFactory.getLogger("Startup");
-        
+
         // create prompt to handle startup
-        Prompt prompt = new Prompt("JMusicBot", "Switching to nogui mode. You can manually start in nogui mode by including the -Dnogui=true flag.", 
+        Prompt prompt = new Prompt("JMusicBot", "Switching to nogui mode. You can manually start in nogui mode by including the -Dnogui=true flag.",
                 "true".equalsIgnoreCase(System.getProperty("nogui", "false")));
-        
+
         // get and check latest version
         String version = OtherUtil.checkVersion(prompt);
-        
+
         // load config
         BotConfig config = new BotConfig(prompt);
         config.load();
         if(!config.isValid())
             return;
-        
+
         // set up the listener
         EventWaiter waiter = new EventWaiter();
         SettingsManager settings = new SettingsManager();
         Bot bot = new Bot(waiter, config, settings);
-        
+
         AboutCommand aboutCommand = new AboutCommand(Color.BLUE.brighter(),
                                 "a music bot that is [easy to host yourself!](https://github.com/MG8853/MusicBot) (v"+version+")",
                                 new String[]{"High-quality music playback", "FairQueue™ Technology", "Easy to host yourself"},
                                 RECOMMENDED_PERMS);
         aboutCommand.setIsAuthor(false);
         aboutCommand.setReplacementCharacter("\uD83C\uDFB6"); // 🎶
-        
+
         // set up the command client
         CommandClientBuilder cb = new CommandClientBuilder()
                 .setPrefix(config.getPrefix())
@@ -91,7 +91,7 @@ public class JMusicBot
                 .addCommands(aboutCommand,
                         new PingCommand(),
                         new SettingsCmd(bot),
-                        
+
                         new LyricsCmd(bot),
                         new NowplayingCmd(bot),
                         new PlayCmd(bot),
@@ -112,12 +112,12 @@ public class JMusicBot
                         new SkiptoCmd(bot),
                         new StopCmd(bot),
                         new VolumeCmd(bot),
-                        
+
                         new PrefixCmd(bot),
                         new SetdjCmd(bot),
                         new SettcCmd(bot),
                         new SetvcCmd(bot),
-                        
+
                         new AutoplaylistCmd(bot),
                         new DebugCmd(bot),
                         new PlaylistCmd(bot),
@@ -141,25 +141,25 @@ public class JMusicBot
         }
         else
             cb.setGame(config.getGame());
-        
+
         if(!prompt.isNoGUI())
         {
-            try 
+            try
             {
                 GUI gui = new GUI(bot);
                 bot.setGUI(gui);
                 gui.init();
-            } 
-            catch(Exception e) 
+            }
+            catch(Exception e)
             {
                 log.error("Could not start GUI. If you are "
                         + "running on a server or in a location where you cannot display a "
                         + "window, please run in nogui mode using the -Dnogui=true flag.");
             }
         }
-        
+
         log.info("Loaded config from " + config.getConfigLocation());
-        
+
         // attempt to log in and start
         try
         {
@@ -167,7 +167,7 @@ public class JMusicBot
                     .setToken(config.getToken())
                     .setAudioEnabled(true)
                     .setGame(nogame ? null : Game.playing("loading..."))
-                    .setStatus(config.getStatus()==OnlineStatus.INVISIBLE || config.getStatus()==OnlineStatus.OFFLINE 
+                    .setStatus(config.getStatus()==OnlineStatus.INVISIBLE || config.getStatus()==OnlineStatus.OFFLINE
                             ? OnlineStatus.INVISIBLE : OnlineStatus.DO_NOT_DISTURB)
                     .addEventListener(cb.build(), waiter, new Listener(bot))
                     .setBulkDeleteSplittingEnabled(true)
