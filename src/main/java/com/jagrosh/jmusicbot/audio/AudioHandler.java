@@ -89,7 +89,7 @@ public class AudioHandler extends AudioEventAdapter implements AudioSendHandler 
                 }
             }
             if (flag) {*/
-        Dwonloader.instans().dwonloadStart(qtrack);
+       // Dwonloader.instans().dwonloadStart(qtrack);
         /*    } else {
                 AudioTrackInfo oldtrac =
                 qtrack = new QueuedTrack(trac, (Long) qtrack.getTrack().getUserData());
