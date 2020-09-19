@@ -9,11 +9,13 @@
 [![Discord](https://discordapp.com/api/guilds/147698382092238848/widget.png)](https://discord.gg/0p9LSGoRLu6Pet0k)<br>
 [![CircleCI](https://img.shields.io/circleci/project/github/MG8853/MusicBot/master.svg)](https://circleci.com/gh/jagrosh/MusicBot)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/gdu6nyte5psj6xfk/branch/master?svg=true)](https://ci.appveyor.com/project/jagrosh/musicbot/branch/master)
-[![CodeFactor](https://www.codefactor.io/repository/github/MG8853/MusicBot/badge)](https://www.codefactor.io/repository/github/MG8853/MusicBot)
+[![CodeFactor](https://www.codefactor.io/repository/github/mg8853/musicbot/badge)](https://www.codefactor.io/repository/github/mg8853/musicbot)
 
-A cross-platform Discord music bot with a clean interface, and that is easy to set up and run yourself!
+Java8が動く全プラットフォームでDiscord音楽ボットを簡単に設定して実行できます！
 
 [![Setup](http://i.imgur.com/VvXYp5j.png)](https://github.com/jagrosh/MusicBot/wiki/Setup)
+
+※BOTのみを翻訳し日本語化しました。Readmeについては本家英語版をお使いください。
 
 ## Features
   * Easy to run (just make sure Java is installed, and run!)
