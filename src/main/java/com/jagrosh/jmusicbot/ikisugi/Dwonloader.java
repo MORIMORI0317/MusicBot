@@ -13,7 +13,7 @@ public class Dwonloader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("test");
+        System.out.println("testnna");
     }
 
     public static Dwonloader instans() {
