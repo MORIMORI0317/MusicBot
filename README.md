@@ -1,6 +1,6 @@
-<img src="https://panel.servg.tokyo/logo.png" height="200" width="900">
+<img align="right" src="https://i.imgur.com/WCYYev7.png" height="200" width="200">
 
-# IKSIUGI2 JMusicBot
+# Ikisugied JMusicBot
 
 [![Downloads](https://img.shields.io/github/downloads/jagrosh/MusicBot/total.svg)](https://github.com/MG8853/MusicBot/releases/latest)
 [![Stars](https://img.shields.io/github/stars/jagrosh/MusicBot.svg)](https://github.com/MG8853/MusicBot/stargazers)
