@@ -58,7 +58,7 @@ public class SettingsCmd extends Command
                 .setDescription("テキストチャンネル: " + (tchan == null ? "Any" : "**#" + tchan.getName() + "**")
                         + "\nボイスチャンネル: " + (vchan == null ? "Any" : "**" + vchan.getName() + "**")
                         + "\nDJ権限: " + (role == null ? "None" : "**" + role.getName() + "**")
-                        + "\n私が反応する記号とか: " + (s.getPrefix() == null ? "None" : "`" + s.getPrefix() + "`")
+                        + "\n私が反応する記号: " + (s.getPrefix() == null ? "None" : "`" + s.getPrefix() + "`")
                         + "\nリピート状態: **" + (s.getRepeatMode() ? "On" : "Off") + "**"
                         + "\nデフォルトのプレイリスト: " + (s.getDefaultPlaylist() == null ? "None" : "**" + s.getDefaultPlaylist() + "**")
                         )
