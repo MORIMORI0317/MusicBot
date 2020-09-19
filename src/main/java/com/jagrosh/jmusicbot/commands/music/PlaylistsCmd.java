@@ -51,7 +51,7 @@ public class PlaylistsCmd extends MusicCommand
         if(list==null)
             event.reply(event.getClient().getError()+" プレイリストを読み込めん！");
         else if(list.isEmpty())
-            event.reply(event.getClient().getWarning()+" プレイリストフォルダにないぞ？");
+            event.reply(event.getClient().getWarning()+" プレイリストフォルダになにもないぞ？");
         else
         {
             StringBuilder builder = new StringBuilder(event.getClient().getSuccess()+" プレイリスト一覧:\n");

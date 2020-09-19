@@ -67,7 +67,7 @@ public class RemoveCmd extends MusicCommand
         }
         if(pos<1 || pos>handler.getQueue().size())
         {
-            event.replyError("１から "+handler.getQueue().size()+" までの数字を入力してくれ！");
+            event.replyError("１から "+handler.getQueue().size()+" までの数字を入力して送ってくれ！");
             return;
         }
         Settings settings = event.getClient().getSettingsFor(event.getGuild());
