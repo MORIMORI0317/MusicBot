@@ -1,4 +1,4 @@
-<img align="right" src="https://panel.servg.tokyo/logo.png" height="200" width="900">
+<img src="https://panel.servg.tokyo/logo.png" height="200" width="900">
 
 # IKSIUGI2 JMusicBot
 
