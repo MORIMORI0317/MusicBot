@@ -120,14 +120,14 @@ public class PlayCmd extends MusicCommand
             else
             {
                 new ButtonMenu.Builder()
-                        .setText(addMsg+"\n"+event.getClient().getWarning()+" これには **"+playlist.getTracks().size()+"** 曲あるよ。 "+LOAD+" を選択するとプレイリストをロードするぞ！")
+                        .setText(addMsg+"\n"+event.getClient().getWarning()+" これには **"+playlist.getTracks().size()+"** があるよ。 "+LOAD+" を選択するとロードするぞ！")
                         .setChoices(LOAD, CANCEL)
                         .setEventWaiter(bot.getWaiter())
                         .setTimeout(30, TimeUnit.SECONDS)
                         .setAction(re ->
                         {
                             if(re.getName().equals(LOAD))
-                                m.editMessage(addMsg+"\n"+event.getClient().getSuccess()+" **"+loadPlaylist(playlist, track)+"** 曲ロードしたぞ！").queue();
+                                m.editMessage(addMsg+"\n"+event.getClient().getSuccess()+" **"+loadPlaylist(playlist, track)+"** をロードしたぞ！").queue();
                             else
                                 m.editMessage(addMsg).queue();
                         }).setFinalAction(m ->
@@ -216,7 +216,7 @@ public class PlayCmd extends MusicCommand
             this.name = "playlist";
             this.aliases = new String[]{"pl"};
             this.arguments = "<name>";
-            this.help = "私が持っているプレイリストを流すよ！";
+            this.help = "plays the provided playlist";
             this.beListening = true;
             this.bePlaying = false;
         }

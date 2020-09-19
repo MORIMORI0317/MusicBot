@@ -117,7 +117,7 @@ public class SearchCmd extends MusicCommand
                         int pos = handler.addTrack(new QueuedTrack(track, event.getAuthor()))+1;
                         event.replySuccess("追加 **" + FormatUtil.filter(track.getInfo().title)
                                 + "** (`" + FormatUtil.formatTime(track.getDuration()) + "`) " + (pos==0 ? "今から流すよ！"
-                                    : " あとで流すよ！"+pos));
+                                    : " あとで流すよ！ "+pos));
                     })
                     .setCancel((msg) -> {})
                     .setUsers(event.getAuthor())

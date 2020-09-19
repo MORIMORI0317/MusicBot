@@ -55,7 +55,7 @@ public class LyricsCmd extends MusicCommand
         {
             if(lyrics == null)
             {
-                event.replyError("`" + title + "`の歌詞はないぜ..." + (event.getArgs().isEmpty() ? " 別の曲名を書いてみ(｀・ω・´)ｼｬｷｰﾝ！ (`lyrics [song name]`)" : ""));
+                event.replyError("`" + title + "`の歌詞はないぜ" + (event.getArgs().isEmpty() ? " 曲名を普通に書いてみ！ (`lyrics [song name]`)" : ""));
                 return;
             }
 
