@@ -26,7 +26,6 @@ import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
-import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 import com.sedmelluq.discord.lavaplayer.track.playback.AudioFrame;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDA;
@@ -36,7 +35,6 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.User;
 
-import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -88,16 +86,27 @@ public class AudioHandler extends AudioEventAdapter implements AudioSendHandler 
                     id = qtrack.getTrack().getInfo().identifier;
                 }
             }
-            if (flag) {*/
-       // Dwonloader.instans().dwonloadStart(qtrack);
-        /*    } else {
-                AudioTrackInfo oldtrac =
-                qtrack = new QueuedTrack(trac, (Long) qtrack.getTrack().getUserData());
+            if (flag) {
+           */
+        Dwonloader.instans().dwonloadStart(qtrack);/*
+            } else {
+                byte[] data = new byte[0];
+                try {
+                    AudioTrackInfo oldinfo = qtrack.getTrack().getInfo();
+                    Path path = Paths.get("C:\\Users\\MORI\\Music\\playlist\\Nyan Cat [original].mp3");
+                    data = Files.readAllBytes(path);
+                    System.out.println(data.length);
+                    LocalAudioTrack trac = new LocalAudioTrack(new AudioTrackInfo(oldinfo.title, oldinfo.author, oldinfo.length, path.toString(), false, path.toString()), new MediaContainerDescriptor(), null);
+                    //       manager.getBot().getPlayerManager().decodeTrackDetails(new AudioTrackInfo(oldinfo.title, oldinfo.author, oldinfo.length, oldinfo.identifier, false, path.toString()), new byte[0]);
+                    qtrack = new QueuedTrack(trac, (Long) qtrack.getTrack().getUserData());
+                    System.out.println(trac);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-*/
-   //     manager.getBot().getPlayerManager().decodeTrackDetails(new AudioTrackInfo("", "", 10, "", false, ""), Paths.get("").toFile().read);
 
+*/
         if (audioPlayer.getPlayingTrack() == null) {
             audioPlayer.playTrack(qtrack.getTrack());
             return -1;
